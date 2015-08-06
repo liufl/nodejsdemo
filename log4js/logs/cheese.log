@@ -1,0 +1,6 @@
+[2015-08-03 14:25:18.718] [TRACE] cheese - entering cheese testing
+[2015-08-03 14:25:18.721] [DEBUG] cheese - Got cheese.
+[2015-08-03 14:25:18.722] [INFO] cheese - cheese is Gouda.
+[2015-08-03 14:25:18.722] [WARN] cheese - cheese is quite smelly
+[2015-08-03 14:25:18.723] [ERROR] cheese - cheese is too ripe
+[2015-08-03 14:25:18.724] [FATAL] cheese - cheese was breeding ground for listeria
