@@ -1,8 +1,8 @@
 var mysql = require('mysql');
 
-var username = '9b4b141433854603aad410a74d792448';
-var password = '9096c72e59a7414ba69e53b1772351cc';
-var db_host = '';
+var username = '';
+var password = '';
+var db_host = 'sqld.duapp.com';
 var db_port = 4050;
 var db_name = '';
 
@@ -14,17 +14,16 @@ var option = {
 	database:db_name
 }
 
-function testSql(req,res) {
-	var TEST_TABLE = 'baeSql';
+function testSql() {
+	var TEST_TABLE = 'TableName';
 	var client = mysql.createConnection(option);
 	
 	client.connect(function(err) {
 		if(err) {
-			res.end('connect error');
-			console.log(err);
+			console.log('connect error: ' + err);
 			return;
 		}
-		res.write('connected success\n');
+		console.log('connected success\n');
 		createTalble(client);
 		
 	});
@@ -45,39 +44,38 @@ function testSql(req,res) {
 			'PRIMARY KEY (id));';
 		executeSql(client,sql,null,function(err,results) {
 			if(err && err.number != client.ERROR_TABLE_EXISTS_ERROR) {
-				console.log(err);
+				console.log('create table error:' + err);
 				return;
 			}
-			res.write('create table success \n');
+			console.log('create table success \n');
 			insertData(client);
 		});
 	}
 	
 	function insertData(client) {
-		var ='INSERT INTO '+ TEST_TABLE +
+		var sql ='INSERT INTO '+ TEST_TABLE +
 			' SET title = ?, text = ?';
 		executeSql(client,sql,['baidu', 'welcome to BAE'],function(err, results) {
 			if (err) {
-          res.end('insertData error');
-          console.log(err);
+          console.log('insertData error:' + err);
           return;
 			}
-			res.write('insert success \n');
+			console.log('insert success \n');
 			queryData(client);
       });
 	}
 	
 	function queryData (client) {
-		var = 'SELECT * FROM '+TEST_TABLE;
+		var sql = 'SELECT * FROM '+TEST_TABLE;
 		executeSql(client,sql,null,function (err, results, fields) {
 			if (err) {
-          res.end('query error');
-          console.log(err);
+          res.end();
+          console.log('query error:' + err);
           return;
 			}
-			// res.end('results: ' + JSON.stringify(results) + '\n');
-			res.write('query success \n');
-			res.end('results length: ' + results.length);
+			// console.log('results: ' + JSON.stringify(results) + '\n');
+			console.log('query success \n');
+			console.log('results length: ' + results.length);
 			client.end();
       });
    }
@@ -87,4 +85,4 @@ function testSql(req,res) {
 	}
 }
 
-module.exports = testSql
+module.exports.testSql = testSql;
