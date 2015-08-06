@@ -1,5 +1,5 @@
 # nodejsdemo
-测试npm第三方包
+测试npm第三方包（测试平台windows)
 
 1.打开cmd,用
 cd /dC:\Users\Administrator\Desktop
