@@ -1,0 +1,4 @@
+2015-08-30 14:27:39[INFO][c:\Users\Administrator\Desktop\nodejsdemo\yfs_log\logtest.js:11:9,]info msg
+2015-08-30 14:27:39[WARNING][c:\Users\Administrator\Desktop\nodejsdemo\yfs_log\logtest.js:13:9,]warning msg
+2015-08-30 14:27:39[ERROR][c:\Users\Administrator\Desktop\nodejsdemo\yfs_log\logtest.js:14:9,]error msg
+2015-08-30 14:27:39[TRACE][c:\Users\Administrator\Desktop\nodejsdemo\yfs_log\logtest.js:15:9,]trace msg
