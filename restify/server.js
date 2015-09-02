@@ -1,13 +1,25 @@
 var restify = require('restify');
-
 var server = restify.createServer();
-server.get('/hello/:name',respond);
-server.head('/hello/:name',respond);
-server.listen(8080,function() {
-	console.log('%s listening at %s ', server.name ,server.url);
-})
+server.use(restify.acceptParser(server.acceptable));
+server.use(restify.authorizationParser());
+server.use(restify.dateParser());
+server.use(restify.queryParser());
+server.use(restify.jsonp());
+server.use(restify.gzipResponse());
+server.use(restify.bodyParser());
 
-function respond(req, res, next) {
-	res.send('hello ' + req.params.name);
-	next();
-}
+//用于处理JsonClient请求
+server.get('/json/v1',function(req,res,next){
+	var a = {name:'conan',blog:'blog.fens.me'}
+	res.send(a);
+});
+
+//用于处理StringClient请求
+server.get('/json/v2',function(req,res,next){
+	var a = {name:'conan',blog:'blog.fens.me'}
+	res.send(JSON.stringify(a));
+});
+
+server.listen(3900,function() {
+	console.log('%s listening at %s', server.name,server.url);
+});
