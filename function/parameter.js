@@ -18,9 +18,9 @@ execute("Hello world!",function(word){
 		sum += i ;
 	}
 	console.log(sum);
-    console.log("the callback:"+word);
+   console.log("the callback:"+word);
 });
-console.log('++++++++++++++++++++++++++++');
+console.log('++++++++++++++++++++++++++++'); 
 
 //one
 execute("function in the parameter",say);
