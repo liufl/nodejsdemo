@@ -9,6 +9,15 @@ cd /dC:\Users\Administrator\Desktop
 
 3.在桌面创建nodejsdemo文件夹，以此为仓库clone此项目
 
+每个模块下有各自的使用方法说明（readme.md)
 （欢迎大家共同学习）
 
-log4js 模块的使用
+模块的使用(第3方模块有:）
+log4js
+mocha
+mysql
+restify
+xml2js
+
+自有模块
+yfs_log
